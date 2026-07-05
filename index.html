@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+<header class="site-header">
+    <div class="prompt">~/{{ site.author | slugify }}</div>
+    <h1>{{ site.title }}</h1>
+    <p>{{ site.description }}</p>
+</header>
+
+<div class="log">
+    {% for post in site.posts %}
+    <div class="entry">
+        <div class="meta">
+            <span class="hash"
+                >#{{ post.date | date: "%s" | slice: -6, 6 }}</span
+            >
+            <span>{{ post.date | date: "%b %-d, %Y" }}</span>
+        </div>
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        {% if post.excerpt %}
+        <p class="excerpt">
+            {{ post.excerpt | strip_html | truncatewords: 32 }}
+        </p>
+        {% endif %} {% if post.tags.size > 0 %}
+        <div class="tags">
+            {% for tag in post.tags %}<span>{{ tag }}</span>{% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+
+<footer class="site-footer">
+    {{ site.author }} · built with jekyll, hosted on github pages
+</footer>

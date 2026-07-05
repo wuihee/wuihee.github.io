@@ -1,0 +1,11 @@
+title: "notes"
+description: "a running log of things I build, break, and figure out"
+baseurl: ""
+url: ""
+markdown: kramdown
+permalink: /:year/:month/:day/:title/
+
+author: "Wuihee"
+
+exclude:
+  - README.md
